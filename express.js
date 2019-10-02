@@ -13,11 +13,35 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Table reserver list (DATA) 
-var Tables = []
+var Tables = [
+  {
+    name: "Ronald Reagan",
+    phone: "666-666-6666",
+    email: "reagan@whitehouse.com",
+    UID: 1382
+  },
+  {
+    name: "Ricardo Milos",
+    phone: "326-246-4355",
+    email: "ricardomilos@gmail.com",
+    UID: 3804
+  }
+];
+var WaitList = [];
 
-app.listen(PORT, () => {
-  console.log(`App listening on PORT: ${PORT}`);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname,"homePage.html"));
 });
+
+app.get("/tables", (req, res) => {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+//function(req, res){} === (req, res) => {}
+
+app.get("/reservations", (req,res) => {
+  res.sendFile(path.join(__dirname, "reservation.html"));
+})
 
 
 app.get("/api/tables", (req, res) => {
@@ -40,3 +64,7 @@ app.post("/api/addedtable", (req, res) => {
   
     res.json(newCharacter);
   });
+
+app.listen(PORT, () => {
+  console.log(`App listening on PORT: ${PORT}`);
+});
