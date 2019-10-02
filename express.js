@@ -72,7 +72,7 @@ app.post("/api/addedtable", (req, res) => {
   } else {
     //Otherwise we're adding it to our WaitList array. 
       var newWaitList = req.body;
-      newWaitlist.routeName = newWaitList.name.replace(/\s+/g, "").toLowerCase();
+      newWaitList.routeName = newWaitList.name.replace(/\s+/g, "").toLowerCase();
       console.log(newWaitList);
       WaitList.push(newWaitList);
       res.json(newWaitList);

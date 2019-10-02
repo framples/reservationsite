@@ -17,8 +17,8 @@
       <h1 align=center>Hot Restaurant</h1>
       <h3 align=center>Make Your Reservation</h3>
       <hr>
-      <a href="tables.html"><button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-list-alt"></span>View Tables</button></a>
-      <a href="homePage.html"><button class="btn btn-danger btn-lg"><span class="fa fa-home"></span></button></a>
+      <a href="/tables"><button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-list-alt"></span>View Tables</button></a>
+      <a href="/homePage"><button class="btn btn-danger btn-lg"><span class="fa fa-home"></span></button></a>
     </div>
     <div class="row">
 
@@ -74,7 +74,7 @@
         uniqueID: $("#uniqueID").val().trim()
       };
 
-      $.post("/api/reservations", newReservation)
+      $.post("/api/addedtable", newReservation)
         .then(function(data) {
           console.log("reservation.html", data);
           alert("Adding reservation...");
